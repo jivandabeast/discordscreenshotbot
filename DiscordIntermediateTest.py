@@ -26,7 +26,7 @@ async def test(ctx):
 # The meat and potatoes, when this command is called the screenshot script is executed and the resulting image is sent
 @bot.command(name='screenshot', help='Takes a screenshot of a webpage')
 async def screenshot(ctx, arg):
-    call("./FullpageScreenshot.sh" + call)
+    call(["./FullpageScreenshot.sh", arg])
     time.sleep(2)
     image=discord.File('/path/to/screenshot.png')
     await ctx.send(file=image)
