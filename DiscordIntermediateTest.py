@@ -8,6 +8,7 @@ import discord
 import time
 from dotenv import load_dotenv
 from discord.ext import commands
+from subprocess import call
 
 # Import the bot token from the .env file
 load_dotenv()
@@ -24,8 +25,8 @@ async def test(ctx):
 
 # The meat and potatoes, when this command is called the screenshot script is executed and the resulting image is sent
 @bot.command(name='screenshot', help='Takes a screenshot of a webpage')
-async def screenshot(ctx):
-    subprocess.call("./FullpageScreenshot.sh")
+async def screenshot(ctx, arg):
+    call("./FullpageScreenshot.sh" + call)
     time.sleep(2)
     image=discord.File('/path/to/screenshot.png')
     await ctx.send(file=image)
